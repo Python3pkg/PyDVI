@@ -35,7 +35,7 @@ def repeat_call(func, count):
 
     """ Call the function *func* *count* times and return the output as a list. """
 
-    return [func() for i in xrange(count)]
+    return [func() for i in range(count)]
 
 ####################################################################################################
 

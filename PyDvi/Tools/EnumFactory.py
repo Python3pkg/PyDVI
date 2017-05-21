@@ -116,8 +116,8 @@ def ExplicitEnumFactory(cls_name, constant_dict):
     """
 
     dict_ = {}
-    dict_['constants'] = constant_dict.values()
-    for name, value in constant_dict.items():
+    dict_['constants'] = list(constant_dict.values())
+    for name, value in list(constant_dict.items()):
         dict_[name] = value
 
     return ExplicitEnumMetaClass(cls_name, (), dict_)

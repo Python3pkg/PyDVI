@@ -44,7 +44,7 @@ args = parser.parse_args()
 
 vf_file = kpsewhich(args.font, file_format='vf')
 if vf_file is None:
-    print 'VF file %s not found' % (args.font)
+    print('VF file %s not found' % (args.font))
     sys.exit(1)
 
 vf_font = VirtualFont(font_manager=None, font_id=0, name=args.font)

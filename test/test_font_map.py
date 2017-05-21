@@ -48,13 +48,13 @@ args = parser.parse_args()
 font_map_file = kpsewhich(args.font_map, file_format='map')
 
 if font_map_file is None:
-    print 'Font map %s not found' % (args.font_map)
+    print('Font map %s not found' % (args.font_map))
     sys.exit(1)
 
 font_map = FontMap(font_map_file)
 font_map.print_summary()
 
-print '\nLook-up cmr10'
+print('\nLook-up cmr10')
 cmr10_font_map = font_map['cmr10']
 cmr10_font_map.print_summary()
 

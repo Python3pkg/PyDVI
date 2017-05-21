@@ -47,7 +47,7 @@ from .PkGlyph import PkGlyph
 ####################################################################################################
 
 def repeat(func, number_of_times):
-    return [func() for i in xrange(number_of_times)]
+    return [func() for i in range(number_of_times)]
 
 ####################################################################################################
 

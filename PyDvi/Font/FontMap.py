@@ -257,7 +257,7 @@ class FontMap(object):
  
         print_card('Font Map %s' % (self.name))
  
-        for font_map_entry in self._map.values():
+        for font_map_entry in list(self._map.values()):
             font_map_entry.print_summary()
 
 ####################################################################################################

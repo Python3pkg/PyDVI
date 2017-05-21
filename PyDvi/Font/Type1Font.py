@@ -105,7 +105,7 @@ class Type1Font(Font):
         # except FontMetricNotFound:
 
         afm_file = kpsewhich(self.name, file_format='afm')
-        print afm_file
+        print(afm_file)
         if afm_file is None:
             raise NameError("AFM file was not found for font {}".format(self.name))
         else:
@@ -123,7 +123,7 @@ class Type1Font(Font):
 
         charcode, glyph_index = face.get_first_char()
         while glyph_index:
-            unicode_character = unichr(charcode)
+            unicode_character = chr(charcode)
             try:
                 name = unicodedata.name(unicode_character)
             except ValueError:
@@ -233,12 +233,12 @@ is scalable:         %s
         message = 'Glyph Table\n'
         charcode, glyph_index = face.get_first_char()
         while glyph_index:
-            unicode_character = unichr(charcode)
+            unicode_character = chr(charcode)
             try:
                 name = unicodedata.name(unicode_character)
             except ValueError:
                 name = '<unknown character>'
-            message += u"  [{}] TeX[{} {}] {} {}\n".format(glyph_index,
+            message += "  [{}] TeX[{} {}] {} {}\n".format(glyph_index,
                                                            charcode,
                                                            hex(charcode), # 0x%04lx
                                                            unicode_character,
@@ -360,7 +360,7 @@ class FontSize(object):
             glyph_bitmap = data.reshape(rows, width/3, 3)
         else:
             glyph_bitmap = np.zeros((rows, width, 3), dtype=np.ubyte)
-            for i in xrange(3):
+            for i in range(3):
                 glyph_bitmap[:,:,i] = data
         
         # Build glyph

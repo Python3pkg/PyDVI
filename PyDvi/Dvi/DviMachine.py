@@ -174,7 +174,7 @@ class Opcode_putset_char(Opcode):
             else: # Fixme:
                 size = dvi_font.magnification * sp2pt(dvi_font.design_size)
                 glyph = font.get_glyph(char_code, size)
-                print glyph.advance, glyph.size, glyph.width_px
+                print(glyph.advance, glyph.size, glyph.width_px)
                 char_width = glyph.px_to_mm(glyph.width_px)
                 char_depth = glyph.px_to_mm(glyph.height_px - glyph.horizontal_bearing_y_px)
                 char_height = glyph.px_to_mm(glyph.horizontal_bearing_y_px)
@@ -864,9 +864,9 @@ class DviProgramPage(list):
                                        self.number_of_chars,
                                       )
         
-        print message
+        print(message)
         for opcode in self:
-            print opcode
+            print(opcode)
 
 ####################################################################################################
 
@@ -910,7 +910,7 @@ class DviProgam(object):
 
     def dvi_font_iterator(self):
         
-        return self.fonts.itervalues()
+        return iter(self.fonts.values())
 
     ##############################################
 
@@ -942,7 +942,7 @@ class DviProgam(object):
         self.stack_depth = stack_depth
         self.number_of_pages = number_of_pages
 
-        for i in xrange(self.number_of_pages):
+        for i in range(self.number_of_pages):
             self.pages.append(DviProgramPage(i))
 
     ##############################################
@@ -990,7 +990,7 @@ Postamble
   - Max Width       %u sp %.1f mm
 '''
 
-        print string_format  % (
+        print(string_format  % (
             self.comment,
             self.dvi_format,
             self.numerator,
@@ -1001,11 +1001,11 @@ Postamble
             self.stack_depth,
             self.max_height, sp2mm(self.max_height),
             self.max_width, sp2mm(self.max_width),
-       )
+       ))
         
-        print 'List of fonts:'
+        print('List of fonts:')
         for font in self.dvi_font_iterator():
-            print font
+            print(font)
 
         # for i in xrange(self.number_of_pages):
         #     print '\nPage', i
@@ -1103,7 +1103,7 @@ class DviMachine(object):
 
     def pop_registers(self, n=1):
         """ Pop *n* level in the register set stack. """
-        for i in xrange(n):
+        for i in range(n):
             del self._registers_stack[-1]
 
     ##############################################
@@ -1123,7 +1123,7 @@ class DviMachine(object):
 
     def pop_colour(self, n=1):
         """ Pop *n* level in the colour stack. """
-        for i in xrange(n):
+        for i in range(n):
             del self._colour_stack[-1]
 
     ##############################################
@@ -1186,13 +1186,13 @@ class DviMachine(object):
 
         # Merge the embedded fonts in the virtual fonts
         last_font_id = max([font_id for font_id in self.fonts])
-        for virtual_font in self.virtual_fonts.itervalues():
-            for font in virtual_font.fonts.itervalues():
+        for virtual_font in self.virtual_fonts.values():
+            for font in virtual_font.fonts.values():
                 last_font_id += 1
                 font.global_id = last_font_id
                 self.fonts[last_font_id] = font
             virtual_font.update_font_id_map()
-            for font_id, dvi_font in virtual_font.dvi_fonts.iteritems():
+            for font_id, dvi_font in virtual_font.dvi_fonts.items():
                 global_font_id = virtual_font.font_id_map[font_id]
                 dvi_font.global_id = global_font_id
                 self.dvi_program.fonts[global_font_id] = dvi_font
@@ -1270,7 +1270,7 @@ class DviMachine(object):
         for char_code in characters:
             subroutine = virtual_font[char_code].subroutine
             opcode_program.number_of_rules += subroutine.number_of_rules
-            for local_font_id, count in subroutine.number_of_chars.iteritems():
+            for local_font_id, count in subroutine.number_of_chars.items():
                 if local_font_id is None:
                     local_font_id = virtual_font.first_font
                 global_font_id = virtual_font.font_id_map[local_font_id]

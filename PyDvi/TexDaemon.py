@@ -44,7 +44,7 @@ __all__ = ['TexDaemon']
 
 ####################################################################################################
 
-import logging
+from . import logging
 import os
 
 from select import select
@@ -170,7 +170,7 @@ class TexDaemon(DaemonSubprocess):
         # allow writing to stdin, in response to errors.
  
         # Initialise input/output file descriptor list
-        output_fds = self.output_fd_dict.values()
+        output_fds = list(self.output_fd_dict.values())
         input_fds = [self.tex_input_fd]
 
         # Initialise output string dictionary
@@ -222,7 +222,7 @@ class TexDaemon(DaemonSubprocess):
  
         # Return ouput dictionary
         result = {}
-        for name, fd in self.output_fd_dict.items():
+        for name, fd in list(self.output_fd_dict.items()):
             result[name] = output_strings[fd]
 
         return result

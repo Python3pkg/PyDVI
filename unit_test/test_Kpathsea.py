@@ -28,7 +28,7 @@ class TestKpathsea(unittest.TestCase):
     def test(self):
 
         filename = kpsewhich('cmr10', file_format='tfm')
-        print 'kpsewhich found', filename
+        print('kpsewhich found', filename)
         self.assertIsNotNone(filename)
 
 ####################################################################################################

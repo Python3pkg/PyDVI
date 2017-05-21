@@ -73,7 +73,7 @@ class QtDviMachine(DviMachine):
     def get_glyph(self, font, glyph_index, magnification):
 
         glyph_hash_key = self.hash_glyph(font, glyph_index, magnification)
-        if self.glyphs.has_key(glyph_hash_key) is True:
+        if (glyph_hash_key in self.glyphs) is True:
             glyph = self.glyphs[glyph_hash_key]
         else:
             if isinstance(font, Type1Font):
@@ -89,8 +89,8 @@ class QtDviMachine(DviMachine):
 
     def paint_rule(self, x, y, w, h):
 
-        x_mm, y_mm, w_mm, h_mm = map(sp2mm, (x, y, w, h))
-        print 'paint_rule', x_mm, y_mm, w_mm, h_mm
+        x_mm, y_mm, w_mm, h_mm = list(map(sp2mm, (x, y, w, h)))
+        print('paint_rule', x_mm, y_mm, w_mm, h_mm)
         rule_rect = QtCore.QRectF(x_mm, y_mm - h_mm, w_mm, h_mm)
         pen = QtGui.QPen(QtCore.Qt.black)
         brush = QtGui.QBrush(QtCore.Qt.black, QtCore.Qt.SolidPattern)
@@ -101,7 +101,7 @@ class QtDviMachine(DviMachine):
     def paint_char_box(self, char_bounding_box):
 
         x, y = char_bounding_box.x.inf, char_bounding_box.y.inf
-        x_mm, y_mm = map(sp2mm, (x, y))
+        x_mm, y_mm = list(map(sp2mm, (x, y)))
         box_width  = sp2mm(char_bounding_box.x.length())
         box_height = sp2mm(char_bounding_box.y.length())
         red_pen = QtGui.QPen(QtCore.Qt.red)
@@ -114,7 +114,7 @@ class QtDviMachine(DviMachine):
 
         self.paint_char_box(char_bounding_box)
 
-        xg_mm, yg_mm = map(sp2mm, (xg, yg))
+        xg_mm, yg_mm = list(map(sp2mm, (xg, yg)))
         glyph = self.get_glyph(font, glyph_index, magnification)
         char_pixmap_item = self.scene.addPixmap(glyph.pixmap)
         char_pixmap_item.setOffset(glyph.horizontal_offset, glyph.vertical_offset)
@@ -181,7 +181,7 @@ class MainWindow(QtGui.QMainWindow):
         self.scene.clear()
         self.dvi_machine.load_dvi_program(dvi_program)
         page_index = 0
-        print 'Run page:', page_index
+        print('Run page:', page_index)
         if len(dvi_program.pages) > 0:
             page_bounding_box = self.dvi_machine.compute_page_bounding_box(page_index)
             self.paint_page(page_bounding_box)
@@ -208,12 +208,12 @@ class MainWindow(QtGui.QMainWindow):
             y += grid_spacing
         
         (page_x_min, page_y_min,
-         text_width, text_height) = map(sp2mm,
+         text_width, text_height) = list(map(sp2mm,
                                         (page_bounding_box.x.inf,
                                          page_bounding_box.y.inf,
                                          page_bounding_box.x.length(),
                                          page_bounding_box.y.length(),
-                                         ))
+                                         )))
 
         pen = QtGui.QPen(QtCore.Qt.red)
         self.scene.addRect(QtCore.QRectF(page_x_min, page_y_min, text_width, text_height), pen)

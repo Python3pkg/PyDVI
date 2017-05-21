@@ -60,8 +60,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'PyDvi'
-copyright = u'2011, Fabrice Salvaire'
+project = 'PyDvi'
+copyright = '2011, Fabrice Salvaire'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -218,7 +218,7 @@ latex_font_size = '10pt'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'PyDvi.tex', u'PyDvi Documentation', u'Fabrice Salvaire', 'manual'),
+  ('index', 'PyDvi.tex', 'PyDvi Documentation', 'Fabrice Salvaire', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -252,7 +252,7 @@ latex_logo = None
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'PyDvi', u'PyDvi Documentation', [u'Fabrice Salvaire'], 1)
+    ('index', 'PyDvi', 'PyDvi Documentation', ['Fabrice Salvaire'], 1)
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.

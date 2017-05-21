@@ -45,13 +45,13 @@ logging.basicConfig(level=logging.DEBUG)
 
 def print_result(result):
     line = '-'*80
-    for key, value in result.iteritems():
+    for key, value in result.items():
         # print line
         if key != 'dvi':
-            print key, ':\n', value
+            print(key, ':\n', value)
         else:
-            print 'DVI :\n', [ord(x) for x in value]
-        print line
+            print('DVI :\n', [ord(x) for x in value])
+        print(line)
 
 
 ####################################################################################################
@@ -129,8 +129,8 @@ tex_daemon = TexDaemon(working_directory='/tmp/tex_daemon',
                        )
 result = tex_daemon.start()
 print_result(result)
-print dvi_opcodes_tuple[ord(result['dvi'][0])]
-print dvi_opcodes_tuple[ord(result['dvi'][-1])]
+print(dvi_opcodes_tuple[ord(result['dvi'][0])])
+print(dvi_opcodes_tuple[ord(result['dvi'][-1])])
 
 dvi_parser._reset()
 dvi_parser.stream = ByteStream(result['dvi'])
@@ -142,8 +142,8 @@ for text in 'Azerty', 'Qwerty':
     text_input = r'\shipout\hbox{%s}\message{Shipout a page}' % (text)
     result = tex_daemon.process(text_input)
     print_result(result)
-    print dvi_opcodes_tuple[ord(result['dvi'][0])]
-    print dvi_opcodes_tuple[ord(result['dvi'][-1])]
+    print(dvi_opcodes_tuple[ord(result['dvi'][0])])
+    print(dvi_opcodes_tuple[ord(result['dvi'][-1])])
 
     dvi_parser.stream = ByteStream(result['dvi'])
     dvi_parser.process_page_forward()

@@ -49,10 +49,10 @@ args = parser.parse_args()
 encoding_file = kpsewhich(args.encoding, file_format='enc files')
 
 if encoding_file is None:
-    print 'Encoding %s not found' % (args.encoding)
+    print('Encoding %s not found' % (args.encoding))
     sys.exit(1)
 
-print 'Read %s encoding file' % (encoding_file)
+print('Read %s encoding file' % (encoding_file))
 
 encoding = Encoding(encoding_file)
 encoding.print_summary()

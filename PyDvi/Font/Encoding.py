@@ -114,7 +114,7 @@ class Encoding(object):
             raise NameError('Bad encoding file')
 
         # Init glyph_names dict
-        for i in xrange(len(self._glyph_indexes)):
+        for i in range(len(self._glyph_indexes)):
             self._glyph_names[self._glyph_indexes[i]] = i
 
     ##############################################
@@ -180,7 +180,7 @@ class Encoding(object):
     def print_summary(self):
 
         message = 'Encoding %s:\n\n' % (self.name)
-        for i in xrange(len(self)):
+        for i in range(len(self)):
             message += '| %3i | %s\n' % (i, self.to_name(i))
 
         print_card(message)

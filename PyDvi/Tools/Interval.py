@@ -145,7 +145,7 @@ class Interval(object):
         """ Print the interval
         """
 
-        print str(self)
+        print(str(self))
 
     ##############################################
 
@@ -464,7 +464,7 @@ class Interval2D(object):
         """ Print the interval
         """
 
-        print str(self)
+        print(str(self))
 
     ##############################################
 

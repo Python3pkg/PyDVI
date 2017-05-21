@@ -139,14 +139,14 @@ Preambule
     def load_dvi_fonts(self):
 
         self.fonts = {font_id:self.font_manager[dvi_font.name]
-                      for font_id, dvi_font in self.dvi_fonts.iteritems()}
+                      for font_id, dvi_font in self.dvi_fonts.items()}
 
     ##############################################
 
     def update_font_id_map(self):
 
         self.font_id_map = {font_id:font.global_id
-                            for font_id, font in self.fonts.iteritems()}
+                            for font_id, font in self.fonts.items()}
 
 ####################################################################################################
 #

@@ -42,7 +42,7 @@ print_card(text,
            newline=False,
            border=False,
            bottom_rule=True)
-print '>'
+print('>')
 print_card(text,
            centered=True,
            width=80,
@@ -50,7 +50,7 @@ print_card(text,
            newline=False,
            border=False,
            bottom_rule=True)
-print '>'
+print('>')
 print_card(text,
            centered=False,
            width=80,
@@ -58,7 +58,7 @@ print_card(text,
            newline=True,
            border=False,
            bottom_rule=True)
-print '>'
+print('>')
 print_card(text,
            centered=False,
            width=80,
@@ -66,7 +66,7 @@ print_card(text,
            newline=False,
            border=True,
            bottom_rule=True)
-print '>'
+print('>')
 print_card(text,
            centered=False,
            width=80,
@@ -74,7 +74,7 @@ print_card(text,
            newline=False,
            border=False,
            bottom_rule=False)
-print '>'
+print('>')
 print_card(text,
            centered=False,
            width=80,

@@ -31,7 +31,7 @@ class TestFontMap(unittest.TestCase):
         fontmap_name = 'pdftex'
         fontmap_file = kpsewhich(fontmap_name, file_format='map')
         self.assertIsNotNone(fontmap_file)
-        print 'Fontmap file:', fontmap_file
+        print('Fontmap file:', fontmap_file)
 
         fontmap = FontMap(fontmap_file)
         fontmap_entry = fontmap['cmmi10']

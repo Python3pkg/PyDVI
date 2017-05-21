@@ -45,7 +45,7 @@ args = parser.parse_args()
 
 tfm_file = kpsewhich(args.font, file_format='tfm')
 if tfm_file is None:
-    print 'TFM file %s not found' % (args.font)
+    print('TFM file %s not found' % (args.font))
     sys.exit(1)
 
 tfm = TfmParser.parse(args.font, tfm_file)

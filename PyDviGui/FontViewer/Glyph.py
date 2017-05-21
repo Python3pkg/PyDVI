@@ -64,7 +64,7 @@ def create_indexed_qimage(height, width):
 
 def init_bitmap_index(image):
 
-    for i in xrange(256):
+    for i in range(256):
         image.setColor(i, QtGui.QColor(255, 255, 255).rgb())
     image.setColor(1, QtGui.QColor(0, 0, 0).rgb())
 
@@ -72,7 +72,7 @@ def init_bitmap_index(image):
 
 def init_gray_index(image):
 
-    for i in xrange(256):
+    for i in range(256):
         j = 255 -i
         image.setColor(i, QtGui.QColor(j, j, j).rgb())
 
@@ -81,8 +81,8 @@ def init_gray_index(image):
 def init_pixels(np_array, image):
 
     height, width = np_array.shape
-    for y in xrange(height):
-        for x in xrange(width):
+    for y in range(height):
+        for x in range(width):
             image.setPixel(x, y, int(np_array[y, x]))
 
 ####################################################################################################

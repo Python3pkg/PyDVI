@@ -237,7 +237,7 @@ class PkGlyph(object):
         i = 0
         for byte in self.nybbles:
             mask = 128
-            for j in xrange(8):
+            for j in range(8):
                 glyph_bitmap[i] = bool(byte & mask)
                 mask >>= 1
                 i += 1
@@ -281,7 +281,7 @@ class PkGlyph(object):
                     y += 1 # goto next row
                     #!# if self._repeat_row_count:
                     # copy repeat_row_count times the current row and increment y
-                    for i in xrange(self._repeat_row_count):
+                    for i in range(self._repeat_row_count):
                         glyph_bitmap[y,:] = glyph_bitmap[y_src,:]
                         y += 1
                     self._repeat_row_count = 0
@@ -374,25 +374,25 @@ class PkGlyph(object):
 
         def print_label_axis():
             number_of_digit = int(math.ceil(math.log10(self.width)))
-            for i in xrange(number_of_digit, 0, -1):
+            for i in range(number_of_digit, 0, -1):
                 line = ' '*5
-                for x in xrange(self.width):
+                for x in range(self.width):
                     line += str((x%10**i)/10**(i-1))
-                print line
+                print(line)
 
         print_label_axis()
-        print axis
+        print(axis)
 
-        for y in xrange(self.height):
+        for y in range(self.height):
             line = ''
-            for x in xrange(self.width):
+            for x in range(self.width):
                 if glyph_bitmap[y,x]:
                     line += 'x'
                 else:
                     line += ' '
-            print '%3u |%s|' % (y, line)
+            print('%3u |%s|' % (y, line))
 
-        print axis
+        print(axis)
         print_label_axis()
 
     ##############################################

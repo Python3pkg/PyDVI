@@ -141,7 +141,7 @@ class TfmChar(object):
 
         """ Return the 3-tuple made of the scaled width, height and depth by *scale_factor*. """
 
-        return [int(x * scale_factor) for x in self.width, self.height, self.depth]
+        return [int(x * scale_factor) for x in (self.width, self.height, self.depth)]
 
     ##############################################
 
@@ -604,7 +604,7 @@ Font Parameters:
                                    )
 
         print_card(message)
-        for char in self._chars.values():
+        for char in list(self._chars.values()):
             char.print_summary()
 
 ####################################################################################################

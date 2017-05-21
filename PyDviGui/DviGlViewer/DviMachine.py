@@ -60,7 +60,7 @@ class GlDviMachine(DviSimplifyMachine):
         # Fixme: could we use array instead of dict ?
         # Fixme: load all the fonts of the document
         # Fixme: we can use one TextureFont per font since we handle correctly the magnification
-        self.texture_fonts = {font_id:TextureFont(font) for font_id, font in self.fonts.iteritems()}
+        self.texture_fonts = {font_id:TextureFont(font) for font_id, font in self.fonts.items()}
 
         # Fixme glyph versus char
         self._glyph_indexes = {font_id:0 for font_id in program.number_of_chars}
@@ -68,7 +68,7 @@ class GlDviMachine(DviSimplifyMachine):
                                 np.zeros((number_of_chars, 4), dtype='f'), # bounding box
                                 np.zeros((number_of_chars, 4), dtype='f'), # texture coordinates
                                 np.zeros((number_of_chars, 4), dtype='f')) # colours
-                       for font_id, number_of_chars in program.number_of_chars.iteritems()}
+                       for font_id, number_of_chars in program.number_of_chars.items()}
 
         self._rule_index = 0
         # rule = [vec2 (x,y) position, vec2 (width,height) dimension, vec4 rgba colour]

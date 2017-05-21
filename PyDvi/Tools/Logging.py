@@ -138,7 +138,7 @@ def print_card(text, **kwargs):
     *kwargs* are passed to :meth:`format_card`.
     """
     
-    print format_card(text, **kwargs)
+    print(format_card(text, **kwargs))
     
 ####################################################################################################
 #

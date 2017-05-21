@@ -39,7 +39,7 @@ _module_logger = logging.getLogger(__name__)
 
 ####################################################################################################
 
-dvi_opcodes_tuple = ['SETC_%03u' % (i) for i in xrange(128)]
+dvi_opcodes_tuple = ['SETC_%03u' % (i) for i in range(128)]
 
 dvi_opcodes_tuple += [
     'SET1', 'SET2', 'SET3', 'SET4',
@@ -59,7 +59,7 @@ dvi_opcodes_tuple += [
     'Z0', 'Z1', 'Z2', 'Z3', 'Z4',
     ]
 
-dvi_opcodes_tuple += ['FONT_%02u' % (i) for i in xrange(64)]
+dvi_opcodes_tuple += ['FONT_%02u' % (i) for i in range(64)]
 
 dvi_opcodes_tuple += [
     'FNT1', 'FNT2', 'FNT3', 'FNT4',
@@ -398,7 +398,7 @@ class DviParser(object):
             if opcode != dvi_opcodes.BOP:
                 raise BadDviStream
 
-            counts = [stream.read_unsigned_byte4() for i in xrange(10)]
+            counts = [stream.read_unsigned_byte4() for i in range(10)]
 
             bop_pointer = stream.read_signed_byte4()
             self.bop_pointer_stack.append(bop_pointer)
@@ -425,7 +425,7 @@ class DviParser(object):
         if opcode != dvi_opcodes.BOP:
             raise BadDviStream
 
-        counts = [stream.read_unsigned_byte4() for i in xrange(10)]
+        counts = [stream.read_unsigned_byte4() for i in range(10)]
 
         bop_pointer = stream.read_signed_byte4()
         #? forward # self.bop_pointer_stack.append(bop_pointer)

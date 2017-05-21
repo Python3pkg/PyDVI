@@ -156,7 +156,7 @@ class OpcodeParserSet(list):
 
         opcode_index = opcode_definition[0]
         if isinstance(opcode_index, list):
-            opcode_indexes = range(opcode_index[0], opcode_index[1] +1)
+            opcode_indexes = list(range(opcode_index[0], opcode_index[1] +1))
         else:
             opcode_indexes = [opcode_index]
 
@@ -171,7 +171,7 @@ class OpcodeParserSet(list):
             if isinstance(parameters, list):
                 lower_n, upper_n = parameters
                 signe = sign_of(lower_n)
-                for n in xrange(abs(lower_n), abs(upper_n) +1):
+                for n in range(abs(lower_n), abs(upper_n) +1):
                     i = opcode_index + n -1 # Fixme: bad: opcode_index vs opcode_indexes
                     self[i] = OpcodeParser(i, name, description, tuple([signe*n]), opcode_class)
 

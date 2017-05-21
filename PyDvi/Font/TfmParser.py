@@ -59,7 +59,7 @@ from .Tfm import Tfm, TfmChar, TfmKern, TfmLigature, TfmExtensibleChar
 
 ####################################################################################################
 
-NO_TAG, LIG_TAG, LIST_TAG, EXT_TAG = range(4)
+NO_TAG, LIG_TAG, LIST_TAG, EXT_TAG = list(range(4))
 
 KERN_OPCODE = 128
 
@@ -248,7 +248,7 @@ class TfmParser(object):
         self.table_lengths[tables.character_info] = self.number_of_chars
 
         # read the last lengths
-        for i in xrange(tables.width, len(tables)):
+        for i in range(tables.width, len(tables)):
             self.table_lengths[i] = stream.read_unsigned_byte2()
 
         ###########
@@ -258,7 +258,7 @@ class TfmParser(object):
         # The header starts at 24 bytes
         self.table_pointers[tables.header] = 24
 
-        for table in xrange(tables.header, tables.font_parameter):
+        for table in range(tables.header, tables.font_parameter):
             self.table_pointers[table+1] = self._position_in_table(table, self.table_lengths[table])
 
         ###########
@@ -486,7 +486,7 @@ class TfmParser(object):
 
         # Read the instructions
         first_instruction = True
-        for i in xrange(self.table_lengths[tables.lig_kern]):
+        for i in range(self.table_lengths[tables.lig_kern]):
         
             (skip_byte,
              next_char,
@@ -582,7 +582,7 @@ class TfmParser(object):
         """
 
         # Read the character information table
-        for c in xrange(self.smallest_character_code, self.largest_character_code +1):
+        for c in range(self.smallest_character_code, self.largest_character_code +1):
             self._process_char(c)
 
     ##############################################
@@ -691,7 +691,7 @@ TFM %s
  - Number of font parameter words: %u
 '''
         
-        print string_format  % (self.font_name,
+        print(string_format  % (self.font_name,
                                 self.entire_file_length,
                                 self.table_lengths[tables.header],
                                 self.smallest_character_code,
@@ -704,7 +704,7 @@ TFM %s
                                 self.table_lengths[tables.kern],
                                 self.table_lengths[tables.extensible_character],
                                 self.table_lengths[tables.font_parameter],
-                                )
+                                ))
 
 ####################################################################################################
 #

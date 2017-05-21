@@ -45,7 +45,7 @@ __ALL__ = ['make_nonblocking', 'SubprocessError', 'DaemonSubprocess']
 ####################################################################################################
 
 import fcntl # For non-blocking file descriptor
-import logging
+from . import logging
 import os
 import signal
 

@@ -96,7 +96,7 @@ class GlWidget(GlWidgetBase):
 
         self._logger.debug('Initialise Shader')
 
-        import ShaderProgramesV4 as ShaderProgrames
+        from . import ShaderProgramesV4 as ShaderProgrames
         self.shader_manager = ShaderProgrames.shader_manager
         self.position_shader_interface = ShaderProgrames.position_shader_program_interface
         self.rule_shader_interface = ShaderProgrames.rule_shader_program_interface
@@ -165,7 +165,7 @@ class GlWidget(GlWidgetBase):
         self._logger.info('Update DVI')
 
         self._text_vertex_arrays = []
-        for font_id, glyphs in dvi_machine.glyphs.iteritems():
+        for font_id, glyphs in dvi_machine.glyphs.items():
             texture_font = dvi_machine.texture_fonts[font_id]
             # texture_font.atlas.save(texture_font.name + '.png')
             font_atlas_texture = ImageTexture(texture_font.atlas.data)

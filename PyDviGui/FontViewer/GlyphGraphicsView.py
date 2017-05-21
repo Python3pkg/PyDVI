@@ -128,7 +128,7 @@ class GlyphGraphicsView(QtGui.QGraphicsView):
                 painter(x, grid_pen)
                 xx = x + sub_grid_spacing
                 if x < max:
-                    for i in xrange(1, sub_grid_divider):
+                    for i in range(1, sub_grid_divider):
                         painter(xx, sub_grid_pen)
                         xx += sub_grid_spacing
                 x += grid_spacing

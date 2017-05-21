@@ -45,7 +45,7 @@ _module_logger = logging.getLogger(__name__)
 
 ####################################################################################################
 
-vf_opcodes_tuple = ['SHORT_CHAR_%03u' % (i) for i in xrange(242)]
+vf_opcodes_tuple = ['SHORT_CHAR_%03u' % (i) for i in range(242)]
 
 vf_opcodes_tuple += [
     'LONG_CHAR', # 242

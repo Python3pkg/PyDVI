@@ -160,7 +160,7 @@ class AbstractStream(object):
         number = bytes[0]
         if signed and number >= 128:
             number -= 256
-        for i in xrange(1, number_of_bytes):
+        for i in range(1, number_of_bytes):
             number *= 256
             number += bytes[i]
 

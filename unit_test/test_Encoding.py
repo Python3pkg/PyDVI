@@ -30,7 +30,7 @@ class TestEncoding(unittest.TestCase):
 
         encoding_file = kpsewhich('ec', file_format='enc files')
         self.assertIsNotNone(encoding_file)
-        print 'Encoding file:', encoding_file
+        print('Encoding file:', encoding_file)
 
         encoding = Encoding(encoding_file)
         self.assertEqual(len(encoding), 256)
